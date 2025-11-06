@@ -60,7 +60,7 @@ def play_game():
             lives -= 1
         if not False in guessed_chars.values():
             print()
-            print(f"****** Congratulations! you safed the Snowman!******\n"
+            print(f"****** Congratulations! you safed the Snowman! ******\n"
                   f"\t****** You found the word '{secret_word.title()}' :) ******")
             player_won = True
         elif lives < 1:
