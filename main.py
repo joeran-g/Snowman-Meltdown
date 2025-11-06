@@ -1,6 +1,8 @@
-def main():
+import game_logic as game
 
-    print("Welcome to Snowman Meltdown!")
+
+def main():
+    game.play_game()
 
 
 if __name__ == "__main__":
