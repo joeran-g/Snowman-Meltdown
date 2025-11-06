@@ -66,4 +66,4 @@ def play_game():
         elif lives < 1:
             show_snowman(lives, guessed_chars)
             print("Oh no! the Snowman has melted away!")
-            print(f"the word was: {secret_word}")
+            print(f"the word was: '{secret_word.title()}'")
