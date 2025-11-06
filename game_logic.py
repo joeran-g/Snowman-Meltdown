@@ -5,7 +5,7 @@ import ascii_art as art
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 
-def show_snowman(lives, guessed_chars):
+def show_snowman(lives, guessed_chars, word_to_guess):
     print()
     if lives == 0 or not guessed_chars:
         print(art.STAGES[0])
@@ -15,8 +15,8 @@ def show_snowman(lives, guessed_chars):
         print(f"{art.STAGES[amount]}")
     print()
     print("Word: ", end="")
-    for char, was_guessed in guessed_chars.items():
-        if was_guessed:
+    for char in word_to_guess:
+        if guessed_chars[char]:
             print(f" {char}", end="")
         else:
             print(" _", end="")
@@ -52,7 +52,7 @@ def play_game():
     lives = 3
     player_won = False
     while lives > 0 and not player_won:
-        show_snowman(lives, guessed_chars)
+        show_snowman(lives, guessed_chars, secret_word)
         guess = guess_letter().lower()
         if guess in secret_word:
             guessed_chars[guess] = True
@@ -61,9 +61,9 @@ def play_game():
         if not False in guessed_chars.values():
             print()
             print(f"****** Congratulations! you safed the Snowman! ******\n"
-                  f"\t****** You found the word '{secret_word.title()}' :) ******")
+                  f"\t****** You found the word '{secret_word.title()}' ******")
             player_won = True
         elif lives < 1:
-            show_snowman(lives, guessed_chars)
+            show_snowman(lives, guessed_chars, secret_word)
             print("Oh no! the Snowman has melted away!")
             print(f"the word was: '{secret_word.title()}'")
