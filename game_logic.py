@@ -24,11 +24,10 @@ def show_snowman(lives, guessed_chars, word_to_guess):
 
 
 def guess_letter():
-    while True:
-        user_guess = input("Guess a letter: ")
-        if len(user_guess) == 1 and not user_guess.isdigit():
-            return user_guess
-        print("Please enter just one letter\n")
+    user_guess = input("Guess a letter: ")
+    if len(user_guess) == 1 and not user_guess.isdigit():
+        return user_guess
+    print("Please enter just one letter!\n")
 
 
 def get_random_word():
