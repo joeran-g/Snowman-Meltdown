@@ -5,7 +5,7 @@ def main():
     while True:
         game.play_game()
         play_again = input("\nDo you want to play again? (y/n): ")
-        if play_again == "y":
+        if play_again.lower() in ["y", "yes"]:
             continue
         break
 

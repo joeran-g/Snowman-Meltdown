@@ -8,11 +8,10 @@ WORDS = ["python", "git", "github", "snowman", "meltdown"]
 def show_snowman(lives, guessed_chars, word_to_guess):
     print()
     if lives == 0 or not guessed_chars:
-        print(art.STAGES[0])
+        print(art.STAGES[3])
         print()
         return
-    for amount in range(lives + 1):
-        print(f"{art.STAGES[amount]}")
+    print(f"{art.STAGES[3 - lives]}")
     print()
     print("Word: ", end="")
     for char in word_to_guess:
@@ -60,10 +59,10 @@ def play_game():
             lives -= 1
         if not False in guessed_chars.values():
             print()
-            print(f"****** Congratulations! you safed the Snowman! ******\n"
+            print(f"****** Congratulations! you saved the Snowman! ******\n"
                   f"\t****** You found the word '{secret_word.title()}' ******")
             player_won = True
         elif lives < 1:
             show_snowman(lives, guessed_chars, secret_word)
             print("Oh no! the Snowman has melted away!")
-            print(f"the word was: '{secret_word.title()}'")
+            print(f"The word was: '{secret_word.title()}'")
